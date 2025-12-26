@@ -1,68 +1,63 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* src/index.css */
+@import url('https://rsms.me/inter/inter.css');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  :root, [data-theme='dark-blue'] {
+    /* The default theme: Dark Blue */
+    --color-primary: 13 17 23;      /* #0D1117 */
+    --color-secondary: 22 27 34;   /* #161B22 */
+    --color-border: 48 54 61;       /* #30363D */
+    --color-accent: 88 166 255;     /* #58A6FF */
+    --color-accent-hover: 128 185 247; /* #80B9F7 */
+    --color-text-primary: 201 209 217; /* #C9D1D9 */
+    --color-text-secondary: 139 148 158; /* #8B949E */
+    --color-success: 63 185 80;      /* #3FB950 */
+    --color-error: 248 81 73;       /* #F85149 */
   }
-  a:hover {
-    color: #747bff;
+
+  [data-theme='light'] {
+    --color-primary: 255 255 255;  /* #FFFFFF */
+    --color-secondary: 246 248 250; /* #F6F8FA */
+    --color-border: 208 215 222;    /* #D0D7DE */
+    --color-accent: 9 105 218;      /* #0969DA */
+    --color-accent-hover: 31 125 228; /* #1F7DE4 */
+    --color-text-primary: 36 41 47;  /* #24292F */
+    --color-text-secondary: 87 96 106; /* #57606A */
+    --color-success: 35 134 54;     /* #238636 */
+    --color-error: 207 34 46;      /* #CF222E */
   }
-  button {
-    background-color: #f9f9f9;
+
+  [data-theme='dracula'] {
+    --color-primary: 40 42 54;      /* #282a36 */
+    --color-secondary: 68 71 90;   /* #44475a */
+    --color-border: 56 58 72;       /* #383a48 */
+    --color-accent: 189 147 249;    /* #bd93f9 */
+    --color-accent-hover: 200 167 255; /* #c8a7ff */
+    --color-text-primary: 248 248 242; /* #f8f8f2 */
+    --color-text-secondary: 157 158 166; /* #9da0a6 */
+    --color-success: 80 250 123;     /* #50fa7b */
+    --color-error: 255 85 85;       /* #ff5555 */
   }
+  
+
+
+  body {
+    @apply bg-primary text-text-primary font-sans antialiased;
+    /* Add a transition for smooth theme changes */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+
+
+}
+  .scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.scrollbar-none {
+  scrollbar-width: none;
 }
